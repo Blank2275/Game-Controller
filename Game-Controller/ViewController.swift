@@ -75,7 +75,7 @@ class ViewController: UIViewController{
         
         // Do any additional setup after loading the view.
     @IBAction func connect(_ sender: Any) {
-        var urlString = "ws://localhost:8080"
+        var urlString = "ws://10.104.12.159:8080"
         let url = URL(string: urlString)!
         webSocketTask = session?.webSocketTask(with: url)
         webSocketTask?.resume()

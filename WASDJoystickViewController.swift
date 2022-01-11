@@ -1,23 +1,20 @@
 //
-//  ControllerGeneralViewController.swift
+//  WASDJoystickViewController.swift
 //  Game-Controller
 //
-//  Created by Connor Reed on 1/7/22.
+//  Created by Connor Reed on 1/10/22.
 //
 
 import UIKit
-import SpriteKit
 
-class ControllerGeneralViewController: UIViewController{
+class WASDJoystickViewController: ControllerGeneralViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    func sendKey(key:String){
-        webSocketDelegate?.send(msg: key)
-    }
+    
 
     /*
     // MARK: - Navigation
