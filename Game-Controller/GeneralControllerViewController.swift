@@ -32,13 +32,13 @@ class GeneralControllerViewController: ControllerGeneralViewController {
                 for key in keys{
                     if !currentKeys.contains(key){
                         //new key pressed down
-                        sendKey(key: key)
+                        sendKey(key: key, type: 0)
                     }
                 }
                 for key in currentKeys{
                     if !keys.contains(key){
                         //key released
-                        sendKey(key: key)
+                        sendKey(key: key, type: 0)
                     }
                 }
                 currentKeys = keys
@@ -70,7 +70,7 @@ class GeneralControllerViewController: ControllerGeneralViewController {
     @IBAction func buttonPressed(_ sender: Any) {
         let senderButton = sender as! UIButton
         let keyToSend = keyMap[senderButton.tag]
-        sendKey(key: keyToSend)
+        sendKey(key: keyToSend, type: 0)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         handleJoystickTouch(touches: touches, event: event)
@@ -80,7 +80,7 @@ class GeneralControllerViewController: ControllerGeneralViewController {
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for key in currentKeys{
-            sendKey(key: key)
+            sendKey(key: key, type: 0)
         }
         currentKeys = []
     }

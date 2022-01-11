@@ -15,8 +15,23 @@ class ControllerGeneralViewController: UIViewController{
 
         // Do any additional setup after loading the view.
     }
-    func sendKey(key:String){
-        webSocketDelegate?.send(msg: key)
+    func sendKey(key:String, type:Int){
+        switch type{
+        case 0://keys
+            let msgObject = ["type":"key", "msg":key]
+            do{
+            let data = try JSONSerialization.data(withJSONObject: msgObject, options: .prettyPrinted)
+                let msg = String(data: data, encoding: .utf8) ?? ""
+            webSocketDelegate?.send(msg: msg)
+            } catch{
+                
+            }
+        case 1:
+            webSocketDelegate?.send(msg: key)
+        default:
+            break
+        }
+        
     }
 
     /*
